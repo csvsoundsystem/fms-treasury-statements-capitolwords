@@ -1,0 +1,18 @@
+#!/bin/sh
+
+page=1
+phrase=$(echo "$1"|tr \  \+)
+
+if [ "$phrase" = '' ]
+  echo "USAGE: $0 [phrase]"
+  exit 1
+fi
+
+mkdir -p "$phrase"
+echo "Downloading to $phrase".
+while
+  curl -O "${phrase}/${page}.json" "http://capitolwords.org/api/1/text.json?phrase=$phrase&apikey=1bcff5b8d96e40d1a0b47665b759df9f&page=$page"
+  test $(cat "${phrase}/${page}.json" | wc -l ) -gt 5 
+do
+  page=$(($page + 1))
+done
