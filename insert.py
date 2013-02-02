@@ -17,7 +17,7 @@ def insert(phrase):
 def main():
     import sys
     usage = "USAGE: %s [phrase]" % sys.argv[0]
-    if len(sys.argv) != 1:
+    if len(sys.argv) != 2:
         print(usage)
         exit(1)
     elif not os.path.isdir(sys.argv[1]):
@@ -26,3 +26,6 @@ def main():
 
     phrase = sys.argv[1]
     insert(phrase)
+
+if __name__ == '__main__':
+    main()
