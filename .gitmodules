@@ -1,0 +1,3 @@
+[submodule "spending"]
+	path = spending
+	url = git@github.com:tlevine/capitol-words-spending.git
