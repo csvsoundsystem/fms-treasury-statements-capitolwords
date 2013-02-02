@@ -20,3 +20,5 @@ CREATE TABLE result (
   "speaker_last" TEXT NOT NULL,
   "speaker_raw" TEXT NOT NULL
 );
+CREATE INDEX result_date ON result ("date");
+CREATE INDEX result_phrase ON result ("phrase");

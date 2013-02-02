@@ -16,6 +16,12 @@ def insert(phrase):
             d = json.load(f)
             f.close()
 
+            for row in d['results']:
+                row['phrase'] = phrase
+                for k,v in row.items():
+                    if v == None:
+                        row[k] = ''
+
             dt.insert(d['results'], 'result')
         except:
             print page
