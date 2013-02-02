@@ -8,11 +8,18 @@ dt = dumptruck.DumpTruck(dbname = '/tmp/capitolwords.db')
 
 def insert(phrase):
     for page in os.listdir(phrase):
-        f = open(os.path.join(phrase, page))
-        d = json.load(f)
-        f.close()
+        if page[-5:] != '.json':
+            continue
 
-        dt.insert(d['results'], 'result')
+        try:
+            f = open(os.path.join(phrase, page))
+            d = json.load(f)
+            f.close()
+
+            dt.insert(d['results'], 'result')
+        except:
+            print page
+            raise
 
 def main():
     import sys
