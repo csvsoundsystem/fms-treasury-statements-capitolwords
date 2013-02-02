@@ -1,5 +1,5 @@
 Import the data
 
     ./download [phrase]
-    sqlite3 /tmp/result.db < schema.sql
+    sqlite3 /tmp/capitolwords.db < schema.sql
     ./insert [phrase]
